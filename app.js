@@ -30,8 +30,17 @@ const logoBtn = document.querySelector("#logo");
 const homeBtn = document.querySelector("#home-btn");
 const aboutBtn = document.querySelector("#about-btn");
 const servicesBtn = document.querySelector("#service-btn");
-const projectsBtn = document.querySelector("#projects-Btn");
+const projectBtn = document.querySelector("#projects-btn");
 const contactBtn = document.querySelector("#contact-btn");
+
+const buttons = [
+  logoBtn,
+  homeBtn,
+  aboutBtn,
+  servicesBtn,
+  projectBtn,
+  contactBtn,
+];
 
 const lightMod = () => {
   navbar.classList.add("lightmod");
@@ -130,6 +139,7 @@ const contactBg = document.querySelector(".contact-bg");
 const contactContainer = document.querySelector(".contact-container");
 const contactElements = contactContainer.children;
 
+// Show / Hide Functions
 const showContact = () => {
   reveal(contactBg);
   setTimeout(() => {
@@ -159,6 +169,43 @@ const hideContact = () => {
 };
 
 /* **
+ * PROJECTS SECTION
+ ** */
+const projectSection = document.querySelector("#project-section");
+const projectBg = document.querySelector(".project-bg");
+const projectElements = projectSection.children;
+
+// Show / Hide Functions
+
+//show
+const showProject = () => {
+  reveal(projectBg);
+  setTimeout(() => {
+    reveal(projectSection);
+  }, 1000);
+
+  let t = 1800;
+  for (let i = 0; i < projectElements.length; i++) {
+    setTimeout(() => {
+      console.log(projectElements[i]);
+      reveal(projectElements[i]);
+    }, t);
+    t += 300;
+  }
+};
+
+//hide
+const hideProject = () => {
+  hide(projectSection);
+  for (let i = 0; i < projectElements.length; i++) {
+    hide(projectElements[i]);
+  }
+  setTimeout(() => {
+    hide(projectBg);
+  }, 500);
+};
+
+/* **
  * NAVIGATION
  ** */
 const sections = [
@@ -173,6 +220,12 @@ const sections = [
     btn: aboutBtn,
     reveal: showAbout,
     hide: hideAbout,
+  },
+  {
+    section: "project",
+    btn: projectBtn,
+    reveal: showProject,
+    hide: hideProject,
   },
   {
     section: "contact",
@@ -192,11 +245,19 @@ const removePreviewsSections = (actualSection) => {
 };
 
 const btnClick = () => {
+  let isAnimating = false;
   for (let j = 0; j < sections.length; j++) {
     let btn = sections[j].btn;
     btn.addEventListener("click", () => {
-      removePreviewsSections(j);
-      setTimeout(sections[j].reveal, 800);
+      if (isAnimating == false) {
+        removePreviewsSections(j);
+        setTimeout(sections[j].reveal, 800);
+        isAnimating = true;
+        setTimeout(() => {
+          isAnimating = false;
+          console.log("You can click");
+        }, 2500);
+      }
     });
   }
 };
@@ -204,5 +265,3 @@ const btnClick = () => {
 logo.addEventListener("click", hideSlider);
 
 btnClick();
-
-// TEST

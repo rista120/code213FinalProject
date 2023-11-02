@@ -19,6 +19,8 @@
   --color-acc: #f15025;
   --color-t-dark: #1b1b1a;
 
+  --rgb-acc: 241, 80, 37;
+
   /* PADDING, MARGIN ... */
   --padding-m: var(--font-size-main);
   --padding-l: calc(var(--font-size-main) * 1.5);
@@ -470,4 +472,108 @@ section {
 #contact-form button:hover {
   background-color: var(--color-acc);
   color: var(--color-white);
+}
+
+/* PROJECT SECTION */
+
+.project-bg {
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  background-color: var(--color-grey-light);
+  top: 0;
+  left: 0;
+  transition: var(--transition);
+}
+.project-bg.reveal {
+  height: 100%;
+}
+
+#project-section {
+  width: 100%;
+  height: 0;
+  overflow: scroll;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-dark);
+  padding: 0;
+  transition: var(--transition);
+}
+
+#project-section.reveal {
+  height: 100%;
+  padding: var(--padding-xl);
+  padding-top: var(--padding-top-section);
+}
+
+#project-section > * {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 1s ease;
+}
+
+#project-section > *.reveal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-section-title {
+  width: 100%;
+  padding-top: var(--padding-top-section);
+  margin-bottom: var(--padding-l);
+}
+
+.project-section-title h2 {
+  font-size: 2.44rem;
+  font-weight: 500;
+}
+
+.projects-board {
+  width: 100%;
+  padding-top: var(--padding-l);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--padding-m);
+  border-top: 1px solid var(--color-acc);
+}
+
+.project-card {
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.project-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.project-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: var(--padding-m);
+
+  color: var(--color-grey-light);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(var(--rgb-acc), 0.8);
+  transition: 0.5s ease;
+}
+
+.project-card-info p {
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card:hover .project-card-info {
+  opacity: 1;
 }
