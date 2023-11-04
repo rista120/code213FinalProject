@@ -128,7 +128,7 @@ nav {
 nav a {
   color: var(--color-grey);
   cursor: pointer;
-  font-size: var(--font-size-small);
+  font-size: 15px;
 }
 
 nav a:hover {
@@ -141,7 +141,7 @@ nav.lightmod a {
 
 nav #logo {
   text-decoration: none;
-  font-size: var(--font-size-main);
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -152,6 +152,10 @@ ul.navlinks {
 
 ul.navlinks li {
   list-style: none;
+}
+
+#hmenu {
+  display: none;
 }
 
 /**
@@ -172,6 +176,7 @@ section {
 
 #hero-section .container {
   height: 100%;
+  min-height: 525px;
   display: grid;
   grid-template-columns: 5fr 3fr;
 }
@@ -388,7 +393,6 @@ section {
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   max-width: 1000px;
   place-content: center;
 }
@@ -492,7 +496,7 @@ section {
 #project-section {
   width: 100%;
   height: 0;
-  overflow: scroll;
+  overflow-y: scroll;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -576,4 +580,187 @@ section {
 
 .project-card:hover .project-card-info {
   opacity: 1;
+}
+
+/** 
+* MEDIA QUERRY
+**/
+
+@media screen and (max-width: 1440px) {
+  * {
+    font-size: 16px;
+  }
+
+  /* HERO SECTION */
+  #hero-section .container {
+    min-height: 525px;
+  }
+  .slider-img-container img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .slider-img-container > :nth-child(3).reveal {
+    right: 210px;
+  }
+
+  .slider-img-container > :nth-child(4).reveal {
+    right: 80px;
+  }
+
+  .slider-img-container > :nth-child(5).reveal {
+    right: -50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  /* Hero */
+  .slider-text-hider.reveal {
+    width: 120%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* CONTACT */
+  #contact-text {
+    padding-right: var(--padding-l);
+  }
+
+  #contact-form {
+    padding: var(--padding-l);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  :root {
+    --padding-top-section: 180px;
+  }
+  /* NAVBAR */
+  nav {
+    display: block;
+    background-color: var(--color-dark);
+  }
+
+  #hmenu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .primary-nav-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul.navlinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-xl);
+    justify-content: center;
+    overflow: hidden;
+    height: 0;
+    transition: 0.3s ease;
+  }
+  ul.navlinks.active {
+    height: calc(100vh - 78px);
+  }
+
+  ul.navlinks a {
+    font-size: 18px;
+  }
+
+  nav.lightmod a {
+    color: var(--color-grey);
+  }
+
+  /* HERO SECTION */
+  #hero-section {
+    padding: var(--padding-l);
+    padding-top: 100px;
+  }
+
+  #hero-section .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--padding-m);
+  }
+
+  .slider-img-container {
+    position: relative;
+    order: 2;
+  }
+
+  .slider-img-container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .slider-img-container > :nth-child(3).reveal {
+    right: 230px;
+  }
+
+  .slider-img-container > :nth-child(4).reveal {
+    right: 120px;
+  }
+
+  .slider-img-container > :nth-child(5).reveal {
+    right: 10px;
+  }
+
+  /* Slider text */
+  .slider-txt-container {
+    position: static;
+    order: 1;
+  }
+
+  .slider-text-hider {
+    position: static;
+    background-color: var(--color-grey-light);
+    width: 0%;
+    height: 100%;
+    padding: 0;
+    overflow-y: scroll;
+    box-shadow: none;
+  }
+
+  .slider-text-hider.reveal {
+    width: 100%;
+  }
+
+  /* ABOUT SECTION */
+
+  #about-section.reveal {
+    padding: var(--padding-m);
+    padding-top: var(--padding-xl);
+  }
+
+  #about-section > .container h2 {
+    font-size: 20vw;
+  }
+
+  /* CONTACT SECTION */
+
+  #contact-section {
+    display: grid;
+    place-content: center;
+    padding: var(--padding-m);
+    padding-top: 78px;
+    overflow-y: scroll;
+    transition: var(--transition);
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container > * {
+    align-self: center;
+    padding: var(--padding-m) var(--padding-l);
+  }
+
+  #contact-text {
+    font-size: 2.44rem;
+    font-weight: 400;
+  }
 }

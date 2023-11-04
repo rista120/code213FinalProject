@@ -25,8 +25,10 @@ window.addEventListener("load", () => {
  * NAVLINKS
  ********************* */
 const navbar = document.querySelector("nav");
+const navlist = document.querySelector(".navlinks");
 
 const logoBtn = document.querySelector("#logo");
+const hmenuBtn = document.querySelector("#hmenu");
 const homeBtn = document.querySelector("#home-btn");
 const aboutBtn = document.querySelector("#about-btn");
 const servicesBtn = document.querySelector("#service-btn");
@@ -162,7 +164,7 @@ const hideContact = () => {
   }
   setTimeout(() => {
     hide(contactSection);
-  }, 300);
+  }, 0);
   setTimeout(() => {
     hide(contactBg);
   }, 500);
@@ -214,12 +216,14 @@ const sections = [
     btn: homeBtn,
     reveal: showSlider,
     hide: hideSlider,
+    duration: 1000,
   },
   {
     section: "about",
     btn: aboutBtn,
     reveal: showAbout,
     hide: hideAbout,
+    duration: 1000,
   },
   {
     section: "project",
@@ -244,24 +248,26 @@ const removePreviewsSections = (actualSection) => {
   }
 };
 
+hmenuBtn.addEventListener("click", () => {
+  navlist.classList.toggle("active");
+});
+
 const btnClick = () => {
   let isAnimating = false;
   for (let j = 0; j < sections.length; j++) {
     let btn = sections[j].btn;
     btn.addEventListener("click", () => {
+      navlist.classList.remove("active");
       if (isAnimating == false) {
         removePreviewsSections(j);
-        setTimeout(sections[j].reveal, 800);
+        setTimeout(sections[j].reveal, 1000);
         isAnimating = true;
         setTimeout(() => {
           isAnimating = false;
-          console.log("You can click");
         }, 2500);
       }
     });
   }
 };
-
-logo.addEventListener("click", hideSlider);
 
 btnClick();
