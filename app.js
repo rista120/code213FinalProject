@@ -134,43 +134,6 @@ const hideAbout = () => {
 };
 
 /* **
- * CONTACT SECTION
- ** */
-const contactSection = document.querySelector("#contact-section");
-const contactBg = document.querySelector(".contact-bg");
-const contactContainer = document.querySelector(".contact-container");
-const contactElements = contactContainer.children;
-
-// Show / Hide Functions
-const showContact = () => {
-  reveal(contactBg);
-  setTimeout(() => {
-    reveal(contactSection);
-  }, 500);
-  let t = 1500;
-  for (let i = 0; i < contactElements.length; i++) {
-    let e = contactElements[i];
-    setTimeout(() => {
-      reveal(e);
-    }, t);
-    t += 300;
-  }
-};
-
-const hideContact = () => {
-  for (let i = 0; i < contactElements.length; i++) {
-    let e = contactElements[i];
-    hide(e);
-  }
-  setTimeout(() => {
-    hide(contactSection);
-  }, 0);
-  setTimeout(() => {
-    hide(contactBg);
-  }, 500);
-};
-
-/* **
  * PROJECTS SECTION
  ** */
 const projectSection = document.querySelector("#project-section");
@@ -204,6 +167,43 @@ const hideProject = () => {
   }
   setTimeout(() => {
     hide(projectBg);
+  }, 500);
+};
+
+/* **
+ * CONTACT SECTION
+ ** */
+const contactSection = document.querySelector("#contact-section");
+const contactBg = document.querySelector(".contact-bg");
+const contactContainer = document.querySelector(".contact-container");
+const contactElements = contactContainer.children;
+
+// Show / Hide Functions
+const showContact = () => {
+  reveal(contactBg);
+  setTimeout(() => {
+    reveal(contactSection);
+  }, 500);
+  let t = 1500;
+  for (let i = 0; i < contactElements.length; i++) {
+    let e = contactElements[i];
+    setTimeout(() => {
+      reveal(e);
+    }, t);
+    t += 300;
+  }
+};
+
+const hideContact = () => {
+  for (let i = 0; i < contactElements.length; i++) {
+    let e = contactElements[i];
+    hide(e);
+  }
+  setTimeout(() => {
+    hide(contactSection);
+  }, 0);
+  setTimeout(() => {
+    hide(contactBg);
   }, 500);
 };
 
