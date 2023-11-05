@@ -197,6 +197,7 @@ section {
   width: 150px;
   height: 150px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .slider-img-container > :nth-child(1),
