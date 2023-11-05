@@ -245,6 +245,7 @@ const removePreviewsSections = (actualSection) => {
       continue;
     }
     sections[i].hide();
+    sections[i].btn.classList.remove("active");
   }
 };
 
@@ -258,7 +259,10 @@ const btnClick = () => {
     let btn = sections[j].btn;
     btn.addEventListener("click", () => {
       navlist.classList.remove("active");
-      if (isAnimating == false) {
+      if (btn.classList.contains("active")) {
+        console.log(true);
+      } else if (isAnimating == false) {
+        btn.classList.add("active");
         removePreviewsSections(j);
         setTimeout(sections[j].reveal, 1000);
         isAnimating = true;

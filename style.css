@@ -135,7 +135,8 @@ nav a:hover {
   color: var(--color-white);
 }
 
-nav.lightmod a {
+nav.lightmod a,
+nav.lightmod a.active {
   color: var(--color-dark);
 }
 
@@ -156,6 +157,12 @@ ul.navlinks li {
 
 #hmenu {
   display: none;
+}
+
+nav a.active {
+  color: var(--color-white);
+  font-weight: 700;
+  cursor: default;
 }
 
 /**
