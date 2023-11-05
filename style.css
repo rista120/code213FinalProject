@@ -215,7 +215,8 @@ section {
 
 .slider-img-container > :nth-child(3),
 .slider-img-container > :nth-child(4),
-.slider-img-container > :nth-child(5) {
+.slider-img-container > :nth-child(5),
+.slider-img-container > :nth-child(6) {
   bottom: 5%;
   right: 0;
   opacity: 0;
@@ -235,6 +236,10 @@ section {
 .slider-img-container > :nth-child(5).reveal {
   right: -90px;
   opacity: 1;
+}
+.slider-img-container > :nth-child(6).reveal {
+  right: -90px;
+  opacity: 0;
 }
 
 /* Slider text */
