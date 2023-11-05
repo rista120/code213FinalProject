@@ -55,7 +55,7 @@
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 11px;
+  width: 5px;
 }
 
 *::-webkit-scrollbar-track {
@@ -65,7 +65,7 @@
 *::-webkit-scrollbar-thumb {
   background-color: var(--color-t-dark);
   border-radius: 10px;
-  border: 3px solid var(--color-light);
+  border: 2px solid var(--color-light);
 }
 
 /**
@@ -620,7 +620,8 @@ section {
     right: 80px;
   }
 
-  .slider-img-container > :nth-child(5).reveal {
+  .slider-img-container > :nth-child(5).reveal,
+  .slider-img-container > :nth-child(6).reveal {
     right: -50px;
   }
 }
@@ -717,6 +718,9 @@ section {
 
   .slider-img-container > :nth-child(5).reveal {
     right: 10px;
+  }
+  .slider-img-container > :nth-child(6).reveal {
+    right: 0;
   }
 
   /* Slider text */
